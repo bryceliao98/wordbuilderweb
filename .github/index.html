@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Word Builder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="setup-view" class="view">
+    <h1>Word Builder</h1>
+    <input type="file" id="csvInput" accept=".csv" />
+    <p>Words loaded: <span id="wordCount">0</span></p>
+    <div>
+      <label>
+        Start level:
+        <select id="levelSelect">
+          <option value="1">L1 ▸ KR → EN/CH</option>
+          <option value="2">L2 ▸ EN/CH → KR</option>
+          <option value="3">L3 ▸ Mixed</option>
+        </select>
+      </label>
+    </div>
+    <div>
+      <label>
+        Stage size: <span id="stageSizeLabel">10</span>
+        <input type="range" id="stageSizeInput" min="5" max="30" value="10">
+      </label>
+    </div>
+    <div>
+      <label>
+        Time limit: <span id="timeLimitLabel">10</span>s
+        <input type="range" id="timeLimitInput" min="5" max="30" value="10">
+      </label>
+    </div>
+    <button id="startBtn" disabled>Start</button>
+  </div>
+
+  <div id="quiz-view" class="view" style="display:none;">
+    <div class="topbar">
+      <span id="levelLabel"></span>
+      <span id="timerLabel"></span>
+    </div>
+    <div id="question" class="question"></div>
+    <div id="options" class="options"></div>
+  </div>
+
+  <div id="summary-view" class="view overlay" style="display:none;">
+    <h2>Level Report</h2>
+    <div id="summaryList"></div>
+    <button id="nextLevelBtn">Next level</button>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
